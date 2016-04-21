@@ -161,7 +161,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# See https://github.com/groue/GRDB.swift/issues/41#issuecomment-211655128\nset -e\n\nif [ \"$PLATFORM_NAME\" -eq \"macosx\" ]\nthen\nSDK_PLATFORM_NAME=\"macosx\"\nelse\nSDK_PLATFORM_NAME=\"iphonesimulator\"\nfi\n\nSDKROOT=\"$(xcrun --sdk $SDK_PLATFORM_NAME --show-sdk-path)\"\nCC=\"$(xcrun --sdk $SDK_PLATFORM_NAME -f clang)\"\nCXX=\"$(xcrun --sdk $SDK_PLATFORM_NAME -f clang++)\"\nCFLAGS=\"-isysroot $SDKROOT -DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2\"\nCXXFLAGS=$CFLAGS\n\nexport CC CXX CFLAGS CXXFLAGS\n\nmake clean\n./configure --enable-tempstore=yes --with-crypto-lib=commoncrypto\nmake sqlite3.c\n";
+			shellScript = "# See https://github.com/groue/GRDB.swift/issues/41#issuecomment-211655128\nset -e\n\nif [ \"$PLATFORM_NAME\" -eq \"macosx\" ]\nthen\nSDK_PLATFORM_NAME=\"macosx\"\nelse\nSDK_PLATFORM_NAME=\"iphonesimulator\"\nfi\n\nSDKROOT=\"$(xcrun --sdk $SDK_PLATFORM_NAME --show-sdk-path)\"\nCC=\"$(xcrun --sdk $SDK_PLATFORM_NAME -f clang)\"\nCXX=\"$(xcrun --sdk $SDK_PLATFORM_NAME -f clang++)\"\nCFLAGS=\"-isysroot $SDKROOT -DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2\"\nCXXFLAGS=$CFLAGS\n\nexport CC CXX CFLAGS CXXFLAGS\n\npwd\n./configure --enable-tempstore=yes --with-crypto-lib=commoncrypto\nmake sqlite3.c\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
